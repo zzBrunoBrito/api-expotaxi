@@ -31,7 +31,11 @@
             <artifactId>weld-servlet-core</artifactId>
             <version>2.1.2.Final</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version> <!-- ou a última versão disponível -->
+        </dependency>
         <dependency>
             <groupId>org.jboss.weld</groupId>
             <artifactId>weld-core-impl</artifactId>
