@@ -29,7 +29,8 @@ public class ConexaoBanco {
     }
 
     public static void main(String[] args) {
-        getConnection();
+        //a conexão é feita e é passa pra variavel conn;
+        Connection conn = getConnection();
     }
 
 }
