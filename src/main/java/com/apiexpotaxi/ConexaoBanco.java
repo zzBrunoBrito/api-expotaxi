@@ -22,7 +22,7 @@ public class ConexaoBanco {
 
     private static Connection getConnection() { //throws URISyntaxException, SQLException {
         try {
-            String dbUrl = System.getenv("JDBC_DATABASE_URL");
+            String dbUrl = "jdbc:postgresql://ec2-54-83-27-147.compute-1.amazonaws.com:5432/d1o8bcicho5jj?user=wrzjrwpjsawilf&password=2v9spjkBPlIxnmF2d8cgn80Sgn&sslmode=require";
             return DriverManager.getConnection(dbUrl);
         } catch (SQLException e) {
             e.printStackTrace();
