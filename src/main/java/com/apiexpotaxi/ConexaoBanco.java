@@ -37,7 +37,7 @@ public class ConexaoBanco {
             insertPessoa = connection.prepareStatement("INSERT INTO pessoa (id, nome) VALUES (?, ?)");
             insertPessoa.setInt(1, id);
             insertPessoa.setString(2, nome);
-            insertPessoa.executeUpdate();
+            insertPessoa.executeUpdate(); 
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
