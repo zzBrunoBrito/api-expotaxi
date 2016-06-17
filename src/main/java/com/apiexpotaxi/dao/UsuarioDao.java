@@ -20,21 +20,21 @@ import java.util.List;
  */
 public class UsuarioDao {
 
-    private static PreparedStatement insertPessoa = null;
 
     private static void insert(Usuario usuario) {
         try {
-            Connection connection = null;
-            connection = ConexaoBanco.getConnection();
-            insertPessoa = connection.prepareStatement("INSERT INTO usuario (nome, idade, sexo, endereco, login, senha) VALUES (?, ?, ?, ?, ?, ?)");
-            insertPessoa.setString(1, usuario.getNome());
-            insertPessoa.setInt(2, usuario.getIdade());
-            insertPessoa.setString(3, usuario.getSexo());
-            insertPessoa.setObject(4, usuario.getEndereco());
-            insertPessoa.setString(5, usuario.getLogin());
-            insertPessoa.setString(6, usuario.getSenha());
-            insertPessoa.executeUpdate();
-            ConexaoBanco.closeConnection(connection);
+            Connection conn = null;
+            PreparedStatement pstmt = null;
+            conn = ConexaoBanco.getConnection();
+            pstmt = conn.prepareStatement("INSERT INTO usuario (nome, idade, sexo, endereco, login, senha) VALUES (?, ?, ?, ?, ?, ?)");
+            pstmt.setString(1, usuario.getNome());
+            pstmt.setInt(2, usuario.getIdade());
+            pstmt.setString(3, usuario.getSexo());
+            pstmt.setObject(4, usuario.getEndereco());
+            pstmt.setString(5, usuario.getLogin());
+            pstmt.setString(6, usuario.getSenha());
+            pstmt.executeUpdate();
+            ConexaoBanco.closeConnection(conn, pstmt);
         } catch (SQLException e) {
             e.printStackTrace();
         }
