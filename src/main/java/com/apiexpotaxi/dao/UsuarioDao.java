@@ -63,9 +63,44 @@ public class UsuarioDao {
                 listaUsuario.add(usuario);
             }
             ConexaoBanco.closeConnection(conn);
-        } catch (Exception e) {
-
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return listaUsuario;
+    }
+    
+    private static void atualiza(Usuario usuario){
+        try {
+            Connection conn = null;
+            PreparedStatement pstmt = null;
+            conn = ConexaoBanco.getConnection();
+            pstmt= conn.prepareStatement
+                ("UPDATE usuario SET (nome = ?, idade = ?, sexo = ?, login = ?, senha = ?, endereco = ?)");
+            pstmt.setString(1, usuario.getNome());
+            pstmt.setInt(2, usuario.getIdade());
+            pstmt.setString(3, usuario.getSexo());
+            pstmt.setString(4, usuario.getLogin());
+            pstmt.setString(5, usuario.getSenha());
+            pstmt.setObject(6, usuario.getEndereco());
+            pstmt.executeUpdate();
+            ConexaoBanco.closeConnection(conn, pstmt);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private static void deleta(Usuario usuario){
+        try {
+            Connection conn = null;
+            PreparedStatement pstmt = null;
+            conn = ConexaoBanco.getConnection();
+            pstmt = conn.prepareStatement("DELETE FROM usuario WHERE id = ?");
+            pstmt.setInt(1, usuario.getId());
+            pstmt.executeUpdate();
+            ConexaoBanco.closeConnection(conn, pstmt);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
