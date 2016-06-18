@@ -10,17 +10,36 @@ package com.apiexpotaxi.model;
  * @author bruno
  */
 public class Carro {
-    private String modelo;
+    private int id;
+    private String descricao;
     private String placa;
 
-    public String getModelo() {
-        return modelo;
+    public Carro() {
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public Carro(int id, String descricao, String placa) {
+        this.id = id;
+        this.descricao = descricao;
+        this.placa = placa;
     }
 
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public String getPlaca() {
         return placa;
     }

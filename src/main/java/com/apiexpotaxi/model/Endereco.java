@@ -10,12 +10,35 @@ package com.apiexpotaxi.model;
  * @author bruno
  */
 public class Endereco {
+    private int id;
     private String rua;
     private String bairro;
     private String cidade;
     private String estado;
     private String numCasa;
 
+    public Endereco() {
+    }
+
+    public Endereco(int id, String rua, String bairro, String cidade, String estado, String numCasa) {
+        this.id = id;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.numCasa = numCasa;
+    }
+
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     public String getRua() {
         return rua;
     }
